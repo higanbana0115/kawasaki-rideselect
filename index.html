@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kawasaki RideSelect｜智慧選車互動作品集</title>
+<meta name="description" content="Kawasaki RideSelect 是一個課堂數位轉型概念作品，整合選車篩選、車款比較、購車預算試算、試乘意向表單與 ROI 規劃。">
+<meta name="theme-color" content="#f7f9fc">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{--lime:#c6ff00;--bg:#080a09;--panel:#111613;--muted:#9aa49d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:#f4f7f4;font-family:Inter,"Noto Sans TC",system-ui,sans-serif}
+.lime{color:var(--lime)}.bg-lime{background:var(--lime);color:#0a0d09}.outline-lime{border:1px solid rgba(198,255,0,.42)}
+.panel{background:linear-gradient(145deg,rgba(24,31,26,.96),rgba(13,17,14,.96));border:1px solid #28332b;border-radius:22px}
+.hero{background:radial-gradient(ellipse at 75% 25%,rgba(198,255,0,.14),transparent 35%),linear-gradient(110deg,#080a09 15%,#111912 70%,#172119)}
+.gridbg{background-image:linear-gradient(rgba(198,255,0,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(198,255,0,.045) 1px,transparent 1px);background-size:32px 32px}
+.btn{transition:.18s}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.navlink:hover{color:var(--lime)}
+input,select{background:#0c100d;color:#f4f7f4;border:1px solid #344238;border-radius:10px;padding:12px;width:100%;outline-color:var(--lime)}
+label{font-size:.88rem;color:#c6d0c8}.tag{font-size:.72rem;letter-spacing:.08em;border:1px solid #3d4b40;border-radius:999px;padding:5px 10px;color:#d7e3d8}
+.car-card{cursor:pointer;transition:.2s}.car-card:hover,.car-card.selected{border-color:var(--lime);box-shadow:0 0 0 1px var(--lime),0 12px 35px #0008}
+.car-card.selected .pick{background:var(--lime);color:#080a09}
+.big-number{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;letter-spacing:-.04em}
+
+/* Modern business theme overrides */
+:root{--lime:#2563eb;--bg:#f7f9fc;--panel:#ffffff;--muted:#64748b}
+body{background:#f7f9fc!important;color:#172b43!important}
+.hero{background:linear-gradient(120deg,#f8fbff 0%,#edf4fc 58%,#e5f3ec 100%)!important}
+.gridbg{background-image:radial-gradient(#dbeafe 1px,transparent 1px)!important;background-size:22px 22px!important}
+.panel{background:#fff!important;border:1px solid #e2e8f0!important;border-radius:20px!important;box-shadow:0 8px 28px rgba(15,35,65,.06)!important}
+.bg-lime{background:#2563eb!important;color:#fff!important}
+.lime{color:#2563eb!important}
+.outline-lime{border:1px solid #cbd5e1!important;background:#fff!important;color:#334155!important}
+header{background:rgba(255,255,255,.92)!important;border-color:#e2e8f0!important}
+header a,nav a{color:#334155}
+input,select,textarea{background:#fff!important;color:#172b43!important;border-color:#cbd5e1!important}
+.tag{background:#eff6ff!important;border-color:#dbeafe!important;color:#1d4ed8!important}
+.bike-card:hover,.bike-card.selected,.car-card:hover,.car-card.selected{border-color:#2563eb!important;box-shadow:0 0 0 1px #2563eb,0 10px 28px rgba(37,99,235,.08)!important}
+.text-white{color:#172b43!important}
+.text-zinc-300,.text-zinc-400,.text-zinc-500,.text-white\/70,.text-white\/60{color:#64748b!important}
+.bg-slate-900,.bg-black{background:#142b4a!important}
+.bg-white\/5,.bg-black\/30,.bg-black\/40{background:#f8fafc!important}
+.border-white\/10,.border-white\/15,.border-white\/20{border-color:#e2e8f0!important}
+
+</style>
+</head>
+<body>
+<header class="sticky top-0 z-40 border-b border-white/10 bg-black/90 backdrop-blur">
+ <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+  <a href="#" class="font-black tracking-widest text-lg">K<span class="lime">/</span>RIDE <span class="text-xs text-zinc-500 tracking-normal">CONCEPT</span></a>
+  <nav class="hidden md:flex gap-6 text-sm font-bold text-zinc-300"><a class="navlink" href="#problem">市場痛點</a><a class="navlink" href="#strategy">數位策略</a><a class="navlink" href="#prototype">互動原型</a><a class="navlink" href="#roi">ROI</a><a class="navlink" href="#team">團隊執行</a><a class="navlink" href="#publish">作品展示</a></nav>
+  <a href="#prototype" class="btn bg-lime rounded-lg px-4 py-2 text-sm font-black">開始選車 ↗</a>
+ </div>
+</header>
+<section class="hero gridbg overflow-hidden">
+ <div class="max-w-7xl mx-auto px-4 py-16 md:py-24 grid lg:grid-cols-2 gap-10 items-center">
+  <div><div class="flex flex-wrap gap-2 mb-6"><span class="tag">正式作品集展示｜第 4 類</span><span class="tag">DIGITAL TRANSFORMATION</span><span class="tag">MOTORCYCLE EXPERIENCE</span></div>
+   <p class="lime font-black tracking-[.28em] text-sm">SMART BUYING EXPERIENCE</p>
+   <h1 class="text-5xl md:text-7xl font-black leading-[1.04] mt-4">讓選車更有方向，<br><span class="lime">讓購車更有把握。</span></h1>
+   <p class="text-zinc-300 text-lg leading-8 mt-6 max-w-xl">把選車、預算評估、車款比較與試乘需求整合在同一個入口。讓每一次購車決策，都更清楚、更有效率。</p>
+   <div class="flex flex-wrap gap-3 mt-8"><a href="#prototype" class="btn bg-lime font-black rounded-xl px-6 py-4">探索車款</a><a href="#strategy" class="btn outline-lime rounded-xl px-6 py-4 font-bold">了解數位方案</a></div>
+   <p class="text-xs text-zinc-500 mt-6">作品集展示版｜第 4 類：正式作品集（含第 2 類互動表單概念）</p>
+   <p class="text-xs text-zinc-500 mt-2">可部署為公開網址供手機瀏覽與分享；目前價格、規格、庫存均為示範資料，非官方即時資訊。</p>
+  </div>
+  <div class="relative">
+   <div class="absolute -inset-4 bg-lime/10 blur-3xl rounded-full"></div>
+   <div class="panel relative p-5 md:p-7">
+    <div class="flex justify-between items-start"><div><p class="text-zinc-500 text-xs tracking-widest">RIDER PROFILE</p><h2 class="text-2xl font-black mt-1">你的騎乘風格</h2></div><span class="lime text-2xl">✳</span></div>
+    <div class="grid grid-cols-2 gap-3 mt-6">
+     <div class="rounded-xl bg-white/5 p-4"><div class="text-2xl">🏙️</div><b class="block mt-2">日常通勤</b><small class="text-zinc-500">實用與舒適</small></div>
+     <div class="rounded-xl bg-white/5 p-4"><div class="text-2xl">🏁</div><b class="block mt-2">熱血跑山</b><small class="text-zinc-500">操控與性能</small></div>
+     <div class="rounded-xl bg-white/5 p-4"><div class="text-2xl">🛣️</div><b class="block mt-2">長途旅行</b><small class="text-zinc-500">舒適與續航</small></div>
+     <div class="rounded-xl bg-white/5 p-4"><div class="text-2xl">🎯</div><b class="block mt-2">新手入門</b><small class="text-zinc-500">好上手與預算</small></div>
+    </div>
+    <div class="mt-5 border-t border-white/10 pt-4 flex justify-between items-center"><span class="text-sm text-zinc-400">選車不只看馬力，也要看你的生活。</span><span class="lime font-black">01 / 05</span></div>
+   </div>
+  </div>
+ </div>
+</section>
+<section id="problem" class="max-w-7xl mx-auto px-4 py-16 md:py-20">
+ <p class="lime font-black text-sm tracking-widest">01 / PROBLEM</p><h2 class="text-3xl md:text-4xl font-black mt-3">購車資訊很多，決策卻不一定簡單。</h2><p class="text-zinc-400 mt-4 max-w-3xl leading-7">從消費者常見的選車流程出發，找出資訊落差與服務斷點。以下是本提案的假設痛點，需透過訪談或問卷驗證。</p>
+ <div class="grid md:grid-cols-3 gap-4 mt-8">
+  <article class="panel p-6"><span class="lime text-3xl">01</span><h3 class="text-xl font-black mt-4">車款難比較</h3><p class="text-zinc-400 mt-3 leading-7">排氣量、車重、座高、用途與價格分散在不同頁面，消費者難以快速整理出適合的選項。</p></article>
+  <article class="panel p-6"><span class="lime text-3xl">02</span><h3 class="text-xl font-black mt-4">總持有成本不明</h3><p class="text-zinc-400 mt-3 leading-7">除了車價，還有保險、裝備、保養與耗材等支出，容易只看入手價格而忽略每月負擔。</p></article>
+  <article class="panel p-6"><span class="lime text-3xl">03</span><h3 class="text-xl font-black mt-4">試乘流程不連貫</h3><p class="text-zinc-400 mt-3 leading-7">看完車款後仍需另外詢問門市、留下需求、確認試乘條件，資訊容易中斷或重複溝通。</p></article>
+ </div>
+</section>
+<section id="strategy" class="bg-[#0d120e] border-y border-white/5 py-16 md:py-20">
+ <div class="max-w-7xl mx-auto px-4"><p class="lime font-black text-sm tracking-widest">02 / STRATEGY</p><h2 class="text-3xl md:text-4xl font-black mt-3">不只是賣車，而是升級購車體驗。</h2>
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+   <div class="panel p-5"><div class="text-3xl">⌕</div><h3 class="font-black text-lg mt-3">智慧選車</h3><p class="text-sm text-zinc-400 mt-2 leading-6">依預算、用途與騎乘經驗篩選車款。</p></div>
+   <div class="panel p-5"><div class="text-3xl">⇄</div><h3 class="font-black text-lg mt-3">規格比較</h3><p class="text-sm text-zinc-400 mt-2 leading-6">將價格、排氣量、車重、座高放在同一張表。</p></div>
+   <div class="panel p-5"><div class="text-3xl">＄</div><h3 class="font-black text-lg mt-3">預算試算</h3><p class="text-sm text-zinc-400 mt-2 leading-6">估算頭期款、月付金與每月持有成本。</p></div>
+   <div class="panel p-5"><div class="text-3xl">↗</div><h3 class="font-black text-lg mt-3">試乘需求</h3><p class="text-sm text-zinc-400 mt-2 leading-6">集中保存聯絡資料與偏好，方便後續聯繫。</p></div>
+  </div>
+  <div class="grid md:grid-cols-4 gap-4 mt-8">
+   <div class="md:col-span-1"><p class="text-zinc-500 text-xs tracking-widest">MIS VALUE</p><h3 class="text-2xl font-black mt-2">四大策略價值</h3></div>
+   <div class="border-l-2 border-lime pl-4"><b>營運卓越</b><p class="text-sm text-zinc-500 mt-2">統一需求資料，減少重複詢問。</p></div>
+   <div class="border-l-2 border-lime pl-4"><b>顧客關係</b><p class="text-sm text-zinc-500 mt-2">以個人需求推薦，而非單向推銷。</p></div>
+   <div class="border-l-2 border-lime pl-4"><b>新服務模式</b><p class="text-sm text-zinc-500 mt-2">從商品頁延伸到預算與試乘規劃。</p></div>
+  </div>
+ </div>
+</section>
+<section id="prototype" class="max-w-7xl mx-auto px-4 py-16 md:py-20">
+ <p class="lime font-black text-sm tracking-widest">03 / AI PRODUCT PROTOTYPE</p><h2 class="text-3xl md:text-4xl font-black mt-3">你的車款，讓條件來決定。</h2><p class="text-zinc-400 mt-4 max-w-3xl leading-7">調整篩選條件、比較車款、試算預算，再建立試乘意向。所有車款價格與規格均為課堂展示用示範資料，並非即時報價或官方規格。</p>
+ <div class="grid lg:grid-cols-4 gap-5 mt-8">
+  <aside class="panel p-5 h-fit">
+   <h3 class="font-black text-xl">選車條件</h3>
+   <label class="block mt-5">預算上限（示範）<div class="lime text-2xl font-black mt-2" id="budgetLabel">NT$ 500,000</div><input id="budget" type="range" min="100000" max="900000" step="50000" value="500000" class="mt-3" style="padding:0;accent-color:#c6ff00"></label>
+   <label class="block mt-5">主要用途<select id="purpose" class="mt-2"><option value="all">不限用途</option><option value="city">日常通勤</option><option value="sport">運動／跑山</option><option value="tour">長途旅行</option><option value="beginner">新手入門</option></select></label>
+   <label class="block mt-4">車款類型<select id="type" class="mt-2"><option value="all">全部類型</option><option value="Sport">仿賽</option><option value="Naked">街車</option><option value="Touring">旅行</option></select></label>
+   <label class="block mt-4">騎乘經驗<select id="experience" class="mt-2"><option value="any">不限</option><option value="new">新手</option><option value="experienced">有經驗</option></select></label>
+   <button id="reset" class="btn mt-5 w-full border border-white/20 rounded-xl py-3 font-bold">重設條件</button>
+   <p class="text-xs text-zinc-500 mt-4">提示：此推薦只依原型內的示範標籤運作，不是 AI 診斷，也不構成購車建議。</p>
+  </aside>
+  <div class="lg:col-span-3">
+   <div class="flex flex-wrap items-center justify-between gap-3 mb-4"><h3 class="font-black text-xl">探索車款 <span id="count" class="text-sm text-zinc-500 font-normal"></span></h3><select id="sort" class="max-w-[190px]"><option value="price">價格：低到高</option><option value="displacement">排氣量：低到高</option><option value="weight">車重：輕到重</option></select></div>
+   <div id="bikeList" class="grid md:grid-cols-2 gap-4"></div>
+   <div id="noResults" class="hidden panel p-8 text-center text-zinc-400">沒有符合的示範車款，請調高預算或重設條件。</div>
+   <div id="compareBox" class="hidden panel p-5 mt-5"><div class="flex items-center justify-between gap-3"><h3 class="font-black text-lg">車款比較 <span id="compareCount" class="text-zinc-500 text-sm"></span></h3><button id="clearCompare" class="text-sm text-zinc-400 underline">清除</button></div><div class="overflow-x-auto mt-4"><table class="w-full text-sm text-left"><thead class="text-zinc-500 border-b border-white/10"><tr><th class="py-3 pr-4">項目</th><th class="py-3 pr-4">車款 A</th><th class="py-3 pr-4">車款 B</th></tr></thead><tbody id="compareRows"></tbody></table></div></div>
+  </div>
+ </div>
+ <div class="grid lg:grid-cols-2 gap-5 mt-6">
+  <div class="panel p-6"><p class="lime font-black text-xs tracking-widest">BUDGET CALCULATOR</p><h3 class="text-2xl font-black mt-2">購車預算試算</h3><p class="text-sm text-zinc-500 mt-2">以目前選取車款價格為基礎；利率、頭期款與月數可自行調整。結果僅供估算。</p>
+   <div class="grid sm:grid-cols-2 gap-4 mt-5"><label>選取車款<select id="calcBike" class="mt-2"></select></label><label>頭期款比例<select id="down" class="mt-2"><option value=".2">20%</option><option value=".3" selected>30%</option><option value=".4">40%</option><option value=".5">50%</option></select></label><label>年利率（%）<input id="rate" type="number" min="0" max="30" step=".1" value="4.5" class="mt-2"></label><label>分期期數<select id="months" class="mt-2"><option value="12">12 期</option><option value="24">24 期</option><option value="36" selected>36 期</option><option value="48">48 期</option><option value="60">60 期</option></select></label></div>
+   <button id="calculate" class="btn bg-lime rounded-xl px-5 py-3 font-black mt-5">計算月付金</button><div id="calcResult" class="rounded-xl bg-black/40 p-4 mt-4"><p class="text-zinc-500 text-sm">預估每月分期金額</p><p class="text-3xl font-black lime mt-1">NT$ —</p></div><p class="text-xs text-zinc-600 mt-3">試算採本息平均攤還公式，未包含手續費、保險、稅金、裝備與保養費。實際條件依金融機構核定為準。</p>
+  </div>
+  <div class="panel p-6"><p class="lime font-black text-xs tracking-widest">TEST-RIDE REQUEST</p><h3 class="text-2xl font-black mt-2">建立試乘意向</h3><p class="text-sm text-zinc-500 mt-2">填寫後產生本機示範申請單，不會傳送給 Kawasaki 或任何門市。</p>
+   <form id="testForm" class="mt-5 space-y-4"><div class="grid sm:grid-cols-2 gap-4"><label>姓名<input id="riderName" required placeholder="怎麼稱呼您？" class="mt-2"></label><label>聯絡方式<input id="riderContact" required placeholder="電話或 Email" class="mt-2"></label></div><label class="block">有興趣的車款<select id="requestBike" class="mt-2"></select></label><label class="block">希望聯繫方式<select id="contactMethod" class="mt-2"><option>電話聯繫</option><option>Email 聯繫</option><option>門市現場洽詢</option></select></label><label class="block">備註<input id="note" placeholder="例如：想了解座高或保養費" class="mt-2"></label><button class="btn bg-lime rounded-xl w-full py-3 font-black">建立示範試乘申請</button></form>
+   <div id="requestResult" class="hidden mt-5 border border-lime/40 rounded-xl p-4" role="status"></div>
+  </div>
+ </div>
+</section>
+<section id="roi" class="bg-[#0d120e] border-y border-white/5 py-16 md:py-20">
+ <div class="max-w-7xl mx-auto px-4"><p class="lime font-black text-sm tracking-widest">04 / ROI & BUSINESS VALUE</p><h2 class="text-3xl md:text-4xl font-black mt-3">讓數位轉型的價值，可以被衡量。</h2><p class="text-zinc-400 mt-4 max-w-3xl leading-7">以下是建議的試辦目標，不是已實現的成果。先建立基準值，再以 4–8 週試辦資料檢視成效。</p>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8"><div class="panel p-5"><p class="text-zinc-500 text-sm">有效購車名單</p><p class="big-number lime mt-2">+20%</p><p class="text-xs text-zinc-500 mt-2">目標：提升表單完成數</p></div><div class="panel p-5"><p class="text-zinc-500 text-sm">業務初步整理時間</p><p class="big-number lime mt-2">−30%</p><p class="text-xs text-zinc-500 mt-2">目標：減少重複詢問</p></div><div class="panel p-5"><p class="text-zinc-500 text-sm">試乘意向轉換率</p><p class="big-number lime mt-2">+15%</p><p class="text-xs text-zinc-500 mt-2">目標：提高預約意願</p></div><div class="panel p-5"><p class="text-zinc-500 text-sm">需求資料完整率</p><p class="big-number lime mt-2">≥95%</p><p class="text-xs text-zinc-500 mt-2">目標：欄位驗證與集中管理</p></div></div>
+  <div class="grid md:grid-cols-2 gap-5 mt-6"><div class="panel p-6"><h3 class="font-black text-xl">效益驗證方式</h3><ul class="text-zinc-400 leading-8 mt-3"><li>✓ 比較導入前後表單完成率</li><li>✓ 統計業務首次聯繫所需時間</li><li>✓ 追蹤試乘意向至實際到店的比例</li><li>✓ 蒐集消費者對選車流程的滿意度</li></ul></div><div class="panel p-6"><h3 class="font-black text-xl">商業模式假設</h3><p class="text-zinc-400 leading-7 mt-3">可採 B2B2C 概念：由合作經銷據點使用管理工具，消費者免費進行車款探索與預算規劃。未來可評估門市訂閱、名單管理服務或導購合作；需先驗證店家需求與法規、品牌授權條件。</p></div></div>
+ </div>
+</section>
+<section id="team" class="max-w-7xl mx-auto px-4 py-16 md:py-20">
+ <p class="lime font-black text-sm tracking-widest">05 / EXECUTION</p><h2 class="text-3xl md:text-4xl font-black mt-3">從概念驗證到門市試辦。</h2><p class="text-zinc-400 mt-4 max-w-3xl leading-7">以需求驗證、原型測試、試辦與成效檢討規劃執行流程。</p>
+ <div class="grid md:grid-cols-2 gap-5 mt-8">
+    <div class="panel p-6"><h3 class="text-xl font-black">執行里程碑</h3><div class="mt-5 space-y-5"><div class="flex gap-4"><span class="w-9 h-9 shrink-0 rounded-full bg-lime text-black flex items-center justify-center font-black">1</span><div><b>第 1 週｜需求驗證</b><p class="text-sm text-zinc-500 mt-1">訪談騎士或門市人員，確認選車資訊與試乘流程痛點。</p></div></div><div class="flex gap-4"><span class="w-9 h-9 shrink-0 rounded-full bg-lime text-black flex items-center justify-center font-black">2</span><div><b>第 2 週｜原型測試</b><p class="text-sm text-zinc-500 mt-1">測試篩選、比較、月付試算與意向表單。</p></div></div><div class="flex gap-4"><span class="w-9 h-9 shrink-0 rounded-full bg-lime text-black flex items-center justify-center font-black">3</span><div><b>第 3–4 週｜小規模試辦</b><p class="text-sm text-zinc-500 mt-1">以示範或合作門市資料驗證流程，不宣稱已取得品牌合作。</p></div></div><div class="flex gap-4"><span class="w-9 h-9 shrink-0 rounded-full bg-lime text-black flex items-center justify-center font-black">4</span><div><b>第 5 週｜成效檢討與提案</b><p class="text-sm text-zinc-500 mt-1">整理指標、修正產品方向並向投資人報告下一階段計畫。</p></div></div></div>
+  <div class="mt-6 rounded-xl bg-lime/10 border border-lime/20 p-4"><b class="lime">Pitch 核心</b><p class="text-sm text-zinc-300 mt-2">我們不只是展示車款，而是把消費者的選車決策流程數位化，讓需求更清楚、溝通更有效率，並用可量測指標驗證商業價值。</p></div></div>
+ </div>
+</section>
+<section class="max-w-7xl mx-auto px-4 pb-16"><div class="rounded-2xl border border-amber-500/30 bg-amber-950/20 p-5 text-sm text-zinc-300 leading-7"><b class="text-amber-300">重要聲明：</b>本網站為課堂提案概念原型，並非 Kawasaki 官方網站或任何真實經銷商頁面。車款清單、價格、規格、預算指標與轉換目標皆為示範資料，不應作為實際購車依據。正式上線前須以官方資訊核實車款規格與售價，取得必要品牌授權，並補上後端、個資保護、資安與真實試乘預約流程。</div></section>
+<section id="publish" class="py-14 md:py-18">
+ <div class="max-w-7xl mx-auto px-4">
+  <div class="panel p-6 md:p-8">
+   <div class="flex flex-wrap items-center gap-2 mb-4">
+    <span class="tag">PORTFOLIO READY</span>
+    <span class="tag">STATIC HTML</span>
+    <span class="tag">MOBILE FRIENDLY</span>
+   </div>
+   <h2 class="text-2xl md:text-3xl font-black">作品定位與展示說明</h2>
+   <p class="text-zinc-500 leading-7 mt-3 max-w-4xl">本網站定位為「第 4 類：正式作品集」，用來展示數位轉型分析與互動原型；其中包含車款篩選、比較、月付試算及試乘意向表單等第 2 類互動概念。此版本是單一 HTML 靜態網站，可部署至免費靜態網站平台，產生公開網址後即可透過手機或電腦分享。</p>
+   <div class="grid md:grid-cols-3 gap-4 mt-6">
+    <div class="rounded-xl border border-slate-200 bg-slate-50 p-4"><b>可以展示</b><p class="text-sm text-slate-500 mt-2 leading-6">痛點診斷、數位策略、互動原型、ROI 指標與執行里程碑。</p></div>
+    <div class="rounded-xl border border-slate-200 bg-slate-50 p-4"><b>目前是示範資料</b><p class="text-sm text-slate-500 mt-2 leading-6">車款價格、規格與庫存並非即時資料；表單不會真的送到經銷商。</p></div>
+    <div class="rounded-xl border border-slate-200 bg-slate-50 p-4"><b>公開前要做的事</b><p class="text-sm text-slate-500 mt-2 leading-6">將本檔命名為 index.html，再上傳至 GitHub Pages 或 Netlify 等靜態網站平台取得公開網址。</p></div>
+   </div>
+  </div>
+ </div>
+</section>
+<footer class="border-t border-white/10 bg-black"><div class="max-w-7xl mx-auto px-4 py-7 flex flex-col md:flex-row gap-2 justify-between text-xs text-zinc-600"><span>RideSelect · KAWASAKI CONCEPT · 課堂數位轉型提案</span><span>PROBLEM · STRATEGY · PRODUCT · ROI · EXECUTION</span></div></footer>
+<script>
+const bikes=[
+{id:'ninja400',name:'Ninja 400',type:'Sport',price:260000,cc:399,weight:168,seat:785,purpose:['city','sport','beginner'],experience:'new',desc:'輕量級仿賽風格，適合想體驗運動騎乘的騎士。',tag:'輕量運動'},
+{id:'ninja650',name:'Ninja 650',type:'Sport',price:360000,cc:649,weight:193,seat:790,purpose:['city','sport','tour'],experience:'experienced',desc:'兼顧日常與週末出遊的中量級仿賽取向。',tag:'日常 × 旅行'},
+{id:'z650',name:'Z650',type:'Naked',price:330000,cc:649,weight:188,seat:790,purpose:['city','sport'],experience:'experienced',desc:'街車坐姿取向，適合重視日常靈活性的騎士。',tag:'街車平衡'},
+{id:'z900',name:'Z900',type:'Naked',price:450000,cc:948,weight:213,seat:810,purpose:['city','sport'],experience:'experienced',desc:'大排氣量街車概念，需特別評估經驗與持有成本。',tag:'性能街車'},
+{id:'zx4rr',name:'Ninja ZX-4RR',type:'Sport',price:420000,cc:399,weight:189,seat:800,purpose:['sport'],experience:'experienced',desc:'偏向運動性能與高轉速體驗的仿賽取向。',tag:'運動取向'},
+{id:'versys650',name:'Versys 650',type:'Touring',price:390000,cc:649,weight:219,seat:845,purpose:['tour','city'],experience:'experienced',desc:'旅行取向的騎乘概念，需確認座高與車身尺寸是否合適。',tag:'旅行取向'}
+];
+let selected=new Set();
+const money=n=>'NT$ '+Math.round(n).toLocaleString('en-US');
+function filtered(){let b=+budget.value,p=purpose.value,t=type.value,e=experience.value;let a=bikes.filter(x=>x.price<=b&&(t==='all'||x.type===t)&&(p==='all'||x.purpose.includes(p))&&(e==='any'||(e==='new'?x.experience==='new':x.experience==='experienced')));const s=sort.value;a.sort((x,y)=>s==='price'?x.price-y.price:s==='displacement'?x.cc-y.cc:x.weight-y.weight);return a}
+function render(){const arr=filtered();count.textContent=`(${arr.length} 款符合條件)`;bikeList.innerHTML='';noResults.classList.toggle('hidden',arr.length!==0);arr.forEach(x=>{const el=document.createElement('article');el.className='panel car-card p-5 '+(selected.has(x.id)?'selected':'');el.innerHTML=`<div class="flex items-start justify-between gap-3"><span class="tag">${x.tag}</span><span class="pick rounded-full border border-white/20 w-7 h-7 flex items-center justify-center text-sm">${selected.has(x.id)?'✓':'+'}</span></div><div class="mt-5 mb-3 h-28 rounded-xl bg-gradient-to-br from-lime/10 to-white/0 flex items-center justify-center"><svg viewBox="0 0 280 100" class="w-full h-full" aria-label="機車示意圖"><path d="M48 72 L78 40 L130 40 L163 65 L214 65 L232 48" fill="none" stroke="#c6ff00" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="68" cy="72" r="20" fill="none" stroke="#dce7dd" stroke-width="5"/><circle cx="215" cy="72" r="20" fill="none" stroke="#dce7dd" stroke-width="5"/><path d="M80 40 L99 28 L143 28 L164 65 M125 40 L150 65 L181 65" fill="none" stroke="#c6ff00" stroke-width="5" stroke-linecap="round"/><path d="M174 28 L194 28 L215 50" fill="none" stroke="#dce7dd" stroke-width="4" stroke-linecap="round"/></svg></div><h4 class="text-2xl font-black">${x.name}</h4><p class="text-zinc-400 text-sm mt-2 leading-6">${x.desc}</p><div class="grid grid-cols-3 gap-2 mt-5 text-xs"><div class="bg-black/30 rounded-lg p-2"><span class="text-zinc-500 block">排氣量</span><b>${x.cc} cc</b></div><div class="bg-black/30 rounded-lg p-2"><span class="text-zinc-500 block">車重*</span><b>${x.weight} kg</b></div><div class="bg-black/30 rounded-lg p-2"><span class="text-zinc-500 block">座高*</span><b>${x.seat} mm</b></div></div><div class="flex items-end justify-between mt-5 gap-2"><div><small class="text-zinc-500 block">示範價格</small><strong class="lime text-xl">${money(x.price)}</strong></div><button class="btn border border-white/20 rounded-lg px-3 py-2 text-sm font-bold">${selected.has(x.id)?'取消比較':'加入比較'}</button></div>`;el.addEventListener('click',()=>toggleCompare(x.id));el.querySelector('button').addEventListener('click',ev=>{ev.stopPropagation();toggleCompare(x.id)});bikeList.appendChild(el)});updateCompare();updateSelects()}
+function toggleCompare(id){if(selected.has(id))selected.delete(id);else{if(selected.size>=2){alert('比較功能最多選擇 2 款，請先取消一款。');return}selected.add(id)}render()}
+function updateCompare(){compareBox.classList.toggle('hidden',selected.size===0);compareCount.textContent=`${selected.size}/2`;const a=[...selected].map(id=>bikes.find(x=>x.id===id));const rows=[['示範價格',x=>money(x.price)],['排氣量',x=>x.cc+' cc'],['車重（示範）',x=>x.weight+' kg'],['座高（示範）',x=>x.seat+' mm'],['車款類型',x=>({Sport:'仿賽',Naked:'街車',Touring:'旅行'}[x.type])]];compareRows.innerHTML=rows.map(r=>`<tr class="border-b border-white/5"><td class="py-3 pr-4 text-zinc-500">${r[0]}</td><td class="py-3 pr-4">${a[0]?r[1](a[0]):'—'}</td><td class="py-3 pr-4">${a[1]?r[1](a[1]):'—'}</td></tr>`).join('')}
+function updateSelects(){const old=calcBike.value;const opts=bikes.map(x=>`<option value="${x.id}">${x.name}｜${money(x.price)}</option>`).join('');calcBike.innerHTML=opts;requestBike.innerHTML=opts;if(bikes.some(x=>x.id===old))calcBike.value=old;if(selected.size)requestBike.value=[...selected][0]}
+function calculate(){const bike=bikes.find(x=>x.id===calcBike.value);if(!bike)return;const principal=bike.price*(1-+down.value),n=+months.value,monthlyRate=Math.max(0,+rate.value||0)/1200;const payment=monthlyRate===0?principal/n:principal*monthlyRate/(1-Math.pow(1+monthlyRate,-n));const total=payment*n;calcResult.innerHTML=`<p class="text-zinc-500 text-sm">預估每月分期金額</p><p class="text-3xl font-black lime mt-1">${money(payment)}</p><div class="grid grid-cols-2 gap-3 mt-4 text-sm"><div><span class="text-zinc-500">車價（示範）</span><b class="block mt-1">${money(bike.price)}</b></div><div><span class="text-zinc-500">頭期款</span><b class="block mt-1">${money(bike.price*+down.value)}</b></div><div><span class="text-zinc-500">分期本金</span><b class="block mt-1">${money(principal)}</b></div><div><span class="text-zinc-500">估算總還款</span><b class="block mt-1">${money(total)}</b></div></div>`}
+budget.addEventListener('input',()=>{budgetLabel.textContent=money(+budget.value);render()});[purpose,type,experience,sort].forEach(x=>x.addEventListener('change',render));reset.addEventListener('click',()=>{budget.value=500000;budgetLabel.textContent=money(500000);purpose.value='all';type.value='all';experience.value='any';sort.value='price';render()});clearCompare.addEventListener('click',()=>{selected.clear();render()});[calcBike,down,rate,months].forEach(x=>x.addEventListener('change',calculate));calculate();
+testForm.addEventListener('submit',e=>{e.preventDefault();const id='KR-'+Math.random().toString(36).slice(2,8).toUpperCase();requestResult.classList.remove('hidden');requestResult.innerHTML=`<div class="flex items-start justify-between gap-3"><b class="lime text-lg">示範申請已建立</b><span class="tag">${id}</span></div><p class="text-sm text-zinc-300 mt-3">申請人：${escapeHtml(riderName.value)}<br>聯絡方式：${escapeHtml(riderContact.value)}<br>車款：${requestBike.options[requestBike.selectedIndex].text}<br>偏好：${contactMethod.value}<br>備註：${escapeHtml(note.value||'無')}</p><p class="text-xs text-zinc-500 mt-3">資料只在目前頁面顯示，沒有傳送給任何門市。</p><button type="button" id="copyRequest" class="mt-4 underline text-sm">複製申請摘要</button>`;document.getElementById('copyRequest').onclick=()=>{const txt=`試乘意向 ${id}\\n姓名：${riderName.value}\\n聯絡方式：${riderContact.value}\\n車款：${requestBike.value}\\n聯繫方式：${contactMethod.value}\\n備註：${note.value}`;navigator.clipboard?.writeText(txt).then(()=>alert('已複製')).catch(()=>prompt('請複製',txt))};});
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+render();calculate();
+</script>
+</body></html>
